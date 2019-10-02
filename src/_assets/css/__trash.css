@@ -1,0 +1,622 @@
+html,
+body {
+  max-height: 100%;
+}
+body {
+  background: #eee;
+  font: normal 14px "Fira Sans", sans-serif;
+  text-rendering: optimizelegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+.main-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* a {
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+fieldset {
+  border: none;
+}
+textarea {
+  resize: none;
+}
+button:disabled {
+  opacity: 0.5;
+}
+button {
+  border: none;
+} */
+
+.button {
+  background: #6d45c8;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Fira Sans";
+  font-size: 1em;
+  color: #fff;
+  padding: 0.7em 1em;
+  text-decoration: none;
+}
+.sm {
+  font-size: 80%;
+}
+.xs {
+  font-size: 70%;
+  margin: 0 0.2em;
+  padding: 0.5em 0.7em 0.3em;
+  border-radius: 2px;
+}
+.button + .button {
+  margin-left: 1em;
+}
+.panelButton {
+  clear: both;
+  display: block;
+  padding: 1em 0;
+}
+
+/* ## validacao */
+
+.validateError {
+  color: red;
+  display: block;
+}
+
+/* ## ui */
+
+.modalHide {
+  display: none;
+}
+.modalShow {
+  background-color: rgba(0, 0, 0, 0.49);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.App {
+  margin: 0 auto;
+}
+h1.titleLogo {
+  text-align: center;
+}
+.titleLogo {
+  color: #6d45c8;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+.titleLogo span {
+  color: #ea0;
+}
+.navHeader {
+  background: #333;
+  box-sizing: border-box;
+  color: #fff;
+  padding: 1em;
+  width: 100%;
+}
+
+.navHeader a {
+  color: #fff;
+}
+.generalContent {
+  overflow: hidden;
+}
+
+.verticalMenu {
+  background: #333;
+  left: 0;
+  margin-left: -250px;
+  position: fixed;
+  height: 100vh;
+  overflow: auto;
+  top: 0;
+  width: 250px;
+  left: 0px;
+}
+.verticalMenu ul {
+  margin: 0;
+  padding: 0;
+}
+.verticalMenu li {
+  list-style: none;
+}
+
+.verticalMenu li a,
+.verticalMenu li label {
+  background: rgba(225, 225, 225, 0.07);
+  box-sizing: border-box;
+  border-bottom: 1px dotted #000;
+  color: #eee;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-weight: 500;
+  padding: 0.5em 1em;
+  transition: all 400ms ease-in-out;
+  text-decoration: none;
+  width: 100%;
+}
+.verticalMenu li a:hover,
+.verticalMenu li label:hover {
+  background: #6d45c8;
+  color: #fff;
+}
+.verticalMenu ul li a,
+.verticalMenu ul li label {
+  background: rgba(225, 225, 225, 0.01);
+  color: #999;
+  font-weight: 300;
+  padding-left: 1.5em;
+}
+
+.verticalSubMenuItem[type="checkbox"],
+.header-checkbox {
+  display: none;
+}
+
+.verticalMenu {
+  margin-left: 0px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.49);
+}
+
+.verticalMenu + .contentMenu {
+  margin-left: 260px;
+  min-height: 100vh;
+}
+
+.hamburgerMenu {
+  margin-left: 260px;
+}
+
+.verticalSubMenuItems,
+.header-checkbox ~ ul,
+.helpToggle,
+.helpToggle + div {
+  display: none;
+}
+
+.verticalSubMenuItem[type="checkbox"]:checked ~ .verticalSubMenuItems,
+.header-checkbox:checked ~ ul,
+.helpToggle:checked + div {
+  display: block;
+}
+
+/* Cabeçalho nao logado */
+.headerUnlogged {
+  text-align: center;
+  color: #555;
+}
+.headerUnlogged p a {
+  border-bottom: 1px dotted #6d45c8;
+  color: #6d45c8;
+  font-size: 120%;
+  padding: 0.1em 0.2em;
+  text-decoration: none;
+}
+
+.headerUnlogged a:hover {
+  color: #ea0;
+  border-bottom: 1px dotted #ea0;
+}
+
+.box-unlogged {
+  align-items: flex-start;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  max-width: 300px;
+  width: 100%;
+}
+/*
+  .main-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 60px;
+}
+
+.auth-wrapper form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  padding: 30px 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+*/
+.box-error {
+  color: #c00;
+}
+/* conteudo nao-logado */
+.content-unlogged {
+  max-width: 980px;
+  margin: 0 auto;
+}
+/* Rodape nao-logado */
+
+.footer-unlogged {
+  border-top: 1px solid #ccc;
+  text-align: center;
+  margin: 3em 0 1em;
+  padding: 1em;
+  background-image: linear-gradient(#fff, #eee);
+}
+.footer-unlogged a {
+  border-bottom: 1px dotted #666;
+  color: #666;
+  font-size: 120%;
+  margin: 0 0.5em;
+  text-decoration: none;
+}
+/* Cabeçalho logado */
+
+.header-logged {
+  background: #555;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+}
+.header-logged a {
+  color: #eee;
+  margin-right: 1em;
+  text-decoration: none;
+}
+.header-logged-user {
+  color: #fff;
+  text-align: right;
+  padding: 0 0 0 1em;
+}
+
+.header-logged-user ul {
+  background: #555;
+  left: auto;
+  right: 0;
+  margin: 0.5em 0 0 0;
+  padding: 1em;
+  position: absolute;
+}
+.header-logged-user li {
+  list-style: none;
+}
+
+.container-dashboard {
+  display: flex;
+  justify-content: space-between;
+}
+.container-dashboard > div {
+  width: 46%;
+  padding: 1em;
+}
+.container-dashboard table {
+  background: #fafafa;
+  width: 100%;
+}
+.container-dashboard th {
+  padding: 0.4em 0.2em;
+}
+.container-dashboard td {
+  background: #fff;
+  padding: 0.3em 0.2em;
+}
+
+.dashboardTitle {
+  background: #fafafa;
+  border-bottom: 2px solid #6d45c8;
+  padding: 0.5em 0.2em;
+}
+.dashboardIsApprove {
+  background: #fafafa;
+  border: 1px solid #ccc;
+  margin-bottom: 1em;
+  padding: 1em;
+  margin: 100px auto;
+  margin-top: 100px;
+  text-align: center;
+  width: 400px;
+}
+
+.dashboardIsApprove input {
+  background: transparent;
+  border: none;
+  display: block;
+  font-size: 1.5em;
+  margin: 15px auto;
+  text-align: center;
+  width: auto;
+}
+
+/*
+### Messages
+*/
+.Message {
+  width: 100%;
+}
+.MessageChat {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+}
+
+.MessageChatHeader {
+  background: #666;
+  padding: 1em;
+  margin-bottom: 0.3em;
+}
+.MessageChatHeader h4 {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+.MessageChatTalk {
+  box-sizing: border-box;
+  padding: 2em;
+  width: calc(100% - 200px);
+}
+.MessageChatTalk textarea {
+  height: 60px;
+  width: 100%;
+}
+.MessageChatTalkBox {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column-reverse;
+  height: calc(100vh - 250px);
+  overflow-y: scroll;
+  width: 100%;
+}
+.MessageChatTalkBox span {
+  color: #333;
+  font-size: 90%;
+  padding: 0.4em 1em;
+  margin: 0 0.1em 0.3em 0;
+  white-space: pre-line;
+}
+.MessageChatTalkBox span em {
+  display: block;
+  font-size: 0.7em;
+  opacity: 0.5;
+}
+
+.other {
+  background: #fdfdfd;
+}
+
+.myself {
+  background: #f2fde0;
+  text-align: right;
+}
+
+.MessageChatTalkItem {
+  border-radius: 5px;
+  margin-top: 0.5em;
+  padding: 1em;
+}
+
+/*
+  ### Sugestoes
+*/
+
+.SuggestionButtons {
+  margin-bottom: 1em;
+}
+.SuggestionBox {
+  display: flex;
+  width: 100%;
+}
+
+.SuggestionList,
+.MessageChatList {
+  width: 240px;
+}
+.MessageChatList .SuggestionList input,
+.MessageChatList input {
+  box-sizing: border-box;
+  padding: 1em;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.SuggestionList ul,
+.MessageChatList ul {
+  margin: 0;
+  padding: 0;
+}
+
+.SuggestionList li + li,
+.MessageChatList li + li {
+  border-top: 1px solid #ccc;
+}
+
+.SuggestionList li,
+.MessageChatList li {
+  list-style: none;
+  margin: 0.5em 1em;
+}
+
+.MessageChatList button {
+  background: #fafafa;
+  cursor: pointer;
+  display: block;
+  font-size: 1.1em;
+  padding: 0.5em 1em;
+  transition: all 300ms ease-in-out;
+  width: calc(100% - 10px);
+}
+
+.MessageChatList button:hover {
+  color: #eee;
+  background-color: #6d45c8;
+}
+
+.MessageChatList button + button {
+  margin-top: 1em;
+}
+
+.SuggestionList span,
+.MessageChatList span {
+  display: block;
+  font-style: italic;
+  font-size: 0.8em;
+  color: #999;
+}
+
+.SuggestionMessage,
+.MessageChatTalk {
+  background: #fdfdfd;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1em;
+}
+
+.SuggestionMessageName,
+.MessageName {
+  font-size: 2em;
+}
+
+.SuggestionMessageButtons {
+  text-align: right;
+}
+
+.helpToggleLabel {
+  background: #ccc;
+  display: block;
+  font-weight: bold;
+  padding: 1em 0.5em;
+  width: 100%;
+  transition: all 200ms ease-in-out;
+}
+
+.helpToggleLabel:hover {
+  color: #fff;
+  background: #6d45c8;
+}
+/*
+### Eventos
+*/
+.eventContainer {
+  margin: 0 1em 0 0;
+  padding: 0;
+}
+.eventList {
+  width: 100%;
+  margin-bottom: 1em;
+}
+.eventList > div:first-of-type {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.eventList h3,
+.eventList h4 {
+  margin: 0;
+}
+
+.eventList h4 {
+  color: #777;
+  border-bottom: 1px #777 dashed;
+  font-style: italic;
+  font-weight: normal;
+}
+.eventList + .eventList {
+  border-top: 1px solid #aaa;
+  padding-top: 1em;
+}
+.eventEmpty {
+  border: #999 2px dashed;
+  border-bottom: #777 3px solid;
+  color: #666;
+  padding: 0.5em 0.2em;
+}
+.eventEmpty + .eventEmpty {
+  margin-top: 1em;
+}
+/* ### Add new radio roll */
+
+.eventsListAddOptions div {
+  display: none;
+}
+.eventsListAdd .eventsFirstOption,
+.eventsListAdd .eventsSecondOption {
+  border: 1px solid red;
+}
+.eventsListAdd input[type="radio"]:checked ~ .eventsFirstOption,
+.eventsFirstOption input[type="radio"]:checked ~ .eventsSecondOption {
+  display: block;
+}
+
+.eventPollIcon {
+  background: none;
+  color: #333;
+  margin: 0;
+  padding: 0.3em;
+}
+.eventPollButton {
+  background: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 90%;
+  padding: 1em 0;
+}
+.eventPollButton:hover {
+  color: #6d45c8;
+}
+.eventPollIconSubmit {
+  box-sizing: border-box;
+  padding: 1em;
+  text-align: center;
+}
+.eventPollListQuestion {
+  background: rgba(0, 0, 0, 0.03);
+  padding: 0.6em 0;
+}
+
+.eventPollListQuestion li {
+  border-left: 2px solid rgba(225, 225, 225, 0.7);
+  list-style: none;
+  margin: 1em 0 1em 1em;
+}
+
+.eventCalendar {
+  display: flex;
+  margin-bottom: 15px;
+}
+.eventCalendar > div {
+  box-sizing: border-box;
+  width: 50%;
+}
+.eventCalendar > div + div {
+  padding-left: 1em;
+}
+.eventContainer + .eventContainer {
+  border-bottom: 1px solid #999;
+}
+.loadingSvg {
+  enable-background: new 0 0 50 50;
+}
+.loadingSvg path,
+.loadingSvg rect {
+  fill: #ffcc00;
+}

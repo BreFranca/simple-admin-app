@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.text {
+  font-size: 30px;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+    transform-origin: 53% 43%;
+  }
+}
+
+.spinner {
+  margin-top: 24px;
+  font-size: 30px;
+  animation: spin 1s linear infinite;
+}
